@@ -1,5 +1,6 @@
 package com.meleemistress.smc_take2.smc_core;
 
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.Test;
@@ -15,5 +16,18 @@ public class Example1Test {
 		ctx.EOS();
 		verify(ex).Acceptable();
 		
+	}
+	
+	@Test
+	public void testGoodString() throws Exception {
+		Example1 ex = new Example1();
+		assertTrue(ex.CheckString("000001"));
+		
+	}
+	
+	@Test
+	public void testBadString() throws Exception {
+		Example1 ex = new Example1();
+		assertFalse(ex.CheckString("10"));
 	}
 }
